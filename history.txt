@@ -1,3 +1,9 @@
 Rafael de Oliveira Magalhães N°USP:12566122	
 
 	MiniEP6 - Comandos Utilizados
+	
+Primeiramente criou-se um arquivo Dockerfile para a definição de uma nova imagem a partir da imagem do nginx:alpine. Neste arquivo utilizou-se o comando COPY para passar os arquivos index.html e Caddyfile para os diretórios especificados no enunciado, além disso foi definido um diretório de trabalho com o comando WORKDIR e copiou-se para esse diretório o executável do caddy e o arquivo caddyfile, foi necessário deixar o arquivo caddyfile no mesmo diretório do executável pois o caddy não estava buscando o caddyfile no diretório descrito no enunciado. Por fim no arquivo Dockerfile há um comando CMD que é utilizado para permitir que o arquivo do caddy seja executável e em seguida o executa.
+
+Em relação aos comandos docker utilizados no terminal, foram utilizados os seguintes:
+- docker image build . -t miniep6
+- docker container run --name miniep6-container -p 8080:80 miniep6
